@@ -1,36 +1,21 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="/fragments/head :: header"></head>
-
 <body>
-
 <div class="dashboard-main-wrapper">
-
     <div th:replace="/fragments/header :: header"></div>
-
     <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
-
     <div class="dashboard-wrapper">
-
         <div class="dashboard-ecommerce">
-
             <div class="container-fluid dashboard-content">
-
                 <div class="ecommerce-widget">
-
                     <div class="row">
-
                         <div class="col-lg-6 col-md-12">
-
                             <section class="panel panel-transparent">
                                 <header class="panel-heading">
                                     <h2 class="panel-title">User Create</h2>
                                 </header>
-
                                 <div class="panel-body">
-
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form class="needs-validation" novalidate th:action="@{/user/create}" method="post"
                                           th:object="${user}">
@@ -45,7 +30,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastname" class="col-form-label">Last Name</label>
@@ -57,7 +41,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
@@ -70,7 +53,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="phonenumber" class="col-form-label">Phone Number</label>
@@ -83,7 +65,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
@@ -97,7 +78,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="repassword" class="col-form-label">Password</label>
@@ -112,26 +92,22 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label>Gender</label><br>
                                                     <label class="custom-control custom-radio custom-control-inline">
                                                         <input type="radio" name="radio-inline" checked=""
-                                                               th:field="*{gender}" th:value="Male"
+                                                               th:field="*{gender}" th:value="MALE"
                                                                class="custom-control-input"><span
                                                             class="custom-control-label">Male</span>
                                                     </label>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" th:field="*{gender}"
-                                                               th:value="Female" class="custom-control-input"><span
+                                                        <input type="radio" name="radio-inline" th:field="*{gender}" th:value="FEMALE" class="custom-control-input"><span
                                                             class="custom-control-label">Female</span>
                                                     </label>
-
                                                 </div>
                                             </div>
-
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label>Choose a Role</label>
@@ -140,12 +116,10 @@
                                                         <option th:value=" ''" th:text="Select"></option>
                                                         <option th:each="role : ${roles}" th:value="${role.id}"
                                                                 th:text="${role.description}"></option>
-
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 col-lg-12">
                                                 <div class="float-right">
@@ -153,23 +127,14 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </form>
                                     <!-- ------------------------FORM END----------------------------- -->
-
                                 </div>
-
                             </section>
-
                         </div>
-
                     </div>
-
                 </div>
-
-
                 <!-- ------------------------TABLE START----------------------------- -->
-
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="col-md-12">
@@ -190,9 +155,7 @@
                                                 <th scope="col">Action</th>
                                             </tr>
                                             </thead>
-
                                             <tbody>
-
                                             <tr th:each="user : ${users}">
                                                 <td th:text="${user.firstName + ' ' + user.lastName}"></td>
                                                 <td th:text="${user.userName}"></td>
@@ -210,7 +173,6 @@
                                                     </a>
                                                 </td>
                                             </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -219,21 +181,12 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- ------------------------TABLE END----------------------------- -->
-
             </div>
-
         </div>
-
     </div>
-
     <div th:replace="/fragments/footer :: footer"></div>
-
 </div>
-
 <div th:replace="/fragments/javascript :: js"></div>
-
 </body>
-
 </html>
