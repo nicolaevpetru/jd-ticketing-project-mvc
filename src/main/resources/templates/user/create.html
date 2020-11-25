@@ -1,20 +1,34 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="/fragments/head :: header"></head>
+
 <body>
+
 <div class="dashboard-main-wrapper">
+
     <div th:replace="/fragments/header :: header"></div>
+
     <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+
     <div class="dashboard-wrapper">
+
         <div class="dashboard-ecommerce">
+
             <div class="container-fluid dashboard-content">
+
                 <div class="ecommerce-widget">
+
                     <div class="row">
+
                         <div class="col-lg-6 col-md-12">
+
                             <section class="panel panel-transparent">
                                 <header class="panel-heading">
                                     <h2 class="panel-title">User Create</h2>
                                 </header>
+
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
@@ -86,14 +100,14 @@
 
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label for="repassword" class="col-form-label">Re-enter
-                                                        Password</label>
+                                                    <label for="repassword" class="col-form-label">Password</label>
                                                     <input id="repassword" type="password"
                                                            placeholder="confirm your password" th:field="*{passWord}"
                                                            class="form-control"
                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
                                                     <div class="invalid-feedback">
-                                                        Password do not match.
+                                                        Must contain at least one number and one uppercase and lowercase
+                                                        letter, and at least 4 or more characters"
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,27 +124,28 @@
                                                             class="custom-control-label">Male</span>
                                                     </label>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline"
-                                                               th:field="*{gender}" th:value="Female"
-                                                               class="custom-control-input"><span
+                                                        <input type="radio" name="radio-inline" th:field="*{gender}"
+                                                               th:value="Female" class="custom-control-input"><span
                                                             class="custom-control-label">Female</span>
                                                     </label>
 
                                                 </div>
                                             </div>
+
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label>Choose a Role</label>
-                                                    <select name="roleid" id="roleid" th:field="*{role}"
-                                                            class="custom-select" required="required">
+                                                    <select th:field="*{role}" class="custom-select"
+                                                            required="required">
                                                         <option th:value=" ''" th:text="Select"></option>
-<!--                                                        <option th:each="role : ${roleList}" th:text="${role}"></option>-->
-                                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
+                                                        <option th:each="role : ${roles}" th:value="${role.id}"
+                                                                th:text="${role.description}"></option>
 
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 col-lg-12">
                                                 <div class="float-right">
@@ -138,13 +153,20 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </form>
                                     <!-- ------------------------FORM END----------------------------- -->
+
                                 </div>
+
                             </section>
+
                         </div>
+
                     </div>
+
                 </div>
+
 
                 <!-- ------------------------TABLE START----------------------------- -->
 
@@ -169,21 +191,22 @@
                                             </tr>
                                             </thead>
 
-
                                             <tbody>
-                                            <tr>
-                                                <td th:each="user : ${users}"></td>
-                                                <td th:text="${user.firstName+' '+user.lastName}"></td>
+
+                                            <tr th:each="user : ${users}">
+                                                <td th:text="${user.firstName + ' ' + user.lastName}"></td>
                                                 <td th:text="${user.userName}"></td>
                                                 <td th:text="${user.gender}"></td>
                                                 <td th:text="${user.phone}"></td>
                                                 <td th:text="${user.role.description}"></td>
                                                 <td class="actions">
                                                     <a href="">
-                                                        <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                                        <button type="button" class="btn btn-warning btn-sm">Update
+                                                        </button>
                                                     </a>
                                                     <a href="" class="delete-row">
-                                                        <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                                        <button type="button" class="btn btn-secondary btn-sm">Delete
+                                                        </button>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -198,11 +221,19 @@
                 </div>
 
                 <!-- ------------------------TABLE END----------------------------- -->
+
             </div>
+
         </div>
+
     </div>
+
     <div th:replace="/fragments/footer :: footer"></div>
+
 </div>
+
 <div th:replace="/fragments/javascript :: js"></div>
+
 </body>
+
 </html>

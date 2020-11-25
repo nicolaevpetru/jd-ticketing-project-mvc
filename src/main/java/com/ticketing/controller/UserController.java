@@ -19,14 +19,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/create")
+    public String createUser(Model model){
 
-    @GetMapping({"/create", "/add", "/initialize"})
-    public String createUser(Model model) {
-        model.addAttribute("user", new UserDTO());
-        // DataGenerator
-        model.addAttribute("roles", roleService.findAll());
+        model.addAttribute("user",new UserDTO());
+        model.addAttribute("roles",roleService.findAll());
         model.addAttribute("users",userService.findAll());
-        return "user/create";
+
+        return "/user/create";
     }
 
 }
