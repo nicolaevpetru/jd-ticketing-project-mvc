@@ -2,9 +2,11 @@ package com.ticketing.implementation;
 
 import com.ticketing.dto.RoleDTO;
 import com.ticketing.service.RoleService;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class RoleServiceImpl extends AbstractMapService<RoleDTO, Long> implements RoleService {
 
 

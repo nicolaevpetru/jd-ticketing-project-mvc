@@ -2,9 +2,12 @@ package com.ticketing.implementation;
 
 import com.ticketing.dto.UserDTO;
 import com.ticketing.service.UserService;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl extends AbstractMapService<UserDTO, String> implements UserService {
 
     @Override

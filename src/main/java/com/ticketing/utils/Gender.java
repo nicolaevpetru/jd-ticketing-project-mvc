@@ -1,5 +1,6 @@
 package com.ticketing.utils;
 
+
 public enum Gender {
     MALE("Male"), FEMALE("female");
 
