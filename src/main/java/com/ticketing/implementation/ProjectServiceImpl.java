@@ -2,9 +2,10 @@ package com.ticketing.implementation;
 
 import com.ticketing.dto.ProjectDTO;
 import com.ticketing.service.ProjectService;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class ProjectServiceImpl extends AbstractMapService<ProjectDTO, String> implements ProjectService {
 
     @Override
