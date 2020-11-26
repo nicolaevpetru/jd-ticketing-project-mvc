@@ -3,10 +3,12 @@ package com.ticketing.controller;
 import com.ticketing.dto.ProjectDTO;
 import com.ticketing.service.ProjectService;
 import com.ticketing.service.UserService;
+import com.ticketing.utils.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.stream.Collectors;
@@ -31,5 +33,12 @@ public class ProjectController {
                 .collect(Collectors.toList()));
 
         return "/project/create";
+    }
+
+    @PostMapping("/create")
+    public String insertProject(ProjectDTO project) {
+        projectService.save(project);
+        project.setStatus(Status.OPEN);
+        return "redirect:/project/create";
     }
 }
