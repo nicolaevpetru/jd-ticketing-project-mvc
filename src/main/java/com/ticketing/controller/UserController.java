@@ -1,4 +1,5 @@
 package com.ticketing.controller;
+
 import com.ticketing.dto.UserDTO;
 import com.ticketing.service.RoleService;
 import com.ticketing.service.UserService;
@@ -44,6 +45,12 @@ public class UserController {
     @PostMapping("/update/{username}")
     public String updateUser(@PathVariable("username") String username, UserDTO user, Model model) {
         userService.update(user);
+        return "redirect:/user/create";
+    }
+
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String username) {
+        userService.deleteById(username);
         return "redirect:/user/create";
     }
 }
