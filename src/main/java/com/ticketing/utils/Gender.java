@@ -2,7 +2,7 @@ package com.ticketing.utils;
 
 
 public enum Gender {
-    MALE("Male"), FEMALE("female");
+    MALE("Male"), FEMALE("Female");
 
     private final String value;
 

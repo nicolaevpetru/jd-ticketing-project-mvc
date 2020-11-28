@@ -19,9 +19,10 @@ public class ProjectDTO {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
-    private String projectDetails;
-    private Status status;
+    private String projectDetail;
+    private Status projectStatus;
 }
