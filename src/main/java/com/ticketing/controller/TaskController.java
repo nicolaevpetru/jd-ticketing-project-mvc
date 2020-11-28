@@ -1,6 +1,8 @@
 package com.ticketing.controller;
 
+import com.ticketing.dto.TaskDTO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/task")
 public class TaskController {
 
+
     @GetMapping("/create")
-    public String taskCreate() {
-        return "/task/create";
+    public String createTask(Model model) {
+
+        model.addAttribute("task", new TaskDTO());
+
+        return "task/create";
     }
 
 }
