@@ -51,23 +51,30 @@ public class DataGenerator implements CommandLineRunner {
         roleService.save(manager);
         roleService.save(employee);
 
-        UserDTO user1 = new UserDTO(faker.name().firstName(), faker.name().lastName(),
-                faker.internet().emailAddress(), "abc", true, faker.number().digits(10), admin, Gender.MALE);
-        UserDTO user5 = new UserDTO(faker.name().firstName(), faker.name().lastName(),
-                faker.internet().emailAddress(), "abc", true, faker.number().digits(10), admin, Gender.MALE);
-        UserDTO user2 = new UserDTO(faker.name().firstName(),
-                faker.name().lastName(), faker.internet().emailAddress(), "123", true, faker.number().digits(10), manager, Gender.MALE);
-        UserDTO user3 = new UserDTO(faker.name().firstName(), faker.name().lastName(),
-                faker.internet().emailAddress(), "123", true, faker.number().digits(10), employee, Gender.MALE);
-        UserDTO user4 = new UserDTO(faker.name().firstName(),
-                faker.name().lastName(), faker.internet().emailAddress(), "123", true, faker.number().digits(10), employee, Gender.MALE);
-
-
+        UserDTO user1 = new UserDTO("John", "Kesy",
+                "john@" + faker.internet().domainName(), "Abc1", true, "7459684532", manager, Gender.MALE);
+        UserDTO user5 = new UserDTO("Mike", "Smith",
+                "mike@" + faker.internet().domainName(), "Abc2", true, "7459684532", admin, Gender.MALE);
+        UserDTO user2 = new UserDTO("Delisa",
+                "Norre", "delisa@" + faker.internet().domainName(), "123", true, "8567412358", manager, Gender.FEMALE);
+        UserDTO user3 = new UserDTO("Craig", "Jark",
+                "craig@" + faker.internet().domainName(), "Abc3", true, "7777775566", employee, Gender.MALE);
+        UserDTO user4 = new UserDTO("Shaun",
+                "Hayns", "shaun@" + faker.internet().domainName(), "Abc4", true, "3256987412", manager, Gender.MALE);
+        UserDTO user6 = new UserDTO("Elizebeth",
+                "Loren", "elizebeth@" + faker.internet().domainName(), "Abc4", true, "5306987412", employee, Gender.FEMALE);
+        UserDTO user7 = new UserDTO("Maria",
+                "Ada", "maria@" + faker.internet().domainName(), "Abc4", true, "9996987412", employee, Gender.FEMALE);
+        UserDTO user8 = new UserDTO("Bill",
+                "Matt", "maria@" + faker.internet().domainName(), "Abc4", true, "8881239846", employee, Gender.MALE);
         userService.save(user1);
         userService.save(user2);
         userService.save(user3);
         userService.save(user4);
         userService.save(user5);
+        userService.save(user6);
+        userService.save(user7);
+        userService.save(user8);
 
 
 //        RoleServiceImpl roleService = new RoleServiceImpl();
