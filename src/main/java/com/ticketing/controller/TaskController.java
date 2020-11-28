@@ -24,7 +24,7 @@ public class TaskController {
     @GetMapping("/create")
     public String createTask(Model model) {
         model.addAttribute("task", new TaskDTO());
-        model.addAttribute("project", projectService.findAll());
+        model.addAttribute("projects", projectService.findAll());
         model.addAttribute("employees", userService.findEmployees());
         model.addAttribute("tasks", taskService.findAll());
 
