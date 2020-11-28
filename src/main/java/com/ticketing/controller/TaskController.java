@@ -1,7 +1,6 @@
 package com.ticketing.controller;
 
 import com.ticketing.dto.TaskDTO;
-import com.ticketing.dto.UserDTO;
 import com.ticketing.service.ProjectService;
 import com.ticketing.service.TaskService;
 import com.ticketing.service.UserService;
