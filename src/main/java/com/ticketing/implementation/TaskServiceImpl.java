@@ -2,9 +2,10 @@ package com.ticketing.implementation;
 
 import com.ticketing.dto.TaskDTO;
 import com.ticketing.service.TaskService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implements TaskService {
 
     @Override
