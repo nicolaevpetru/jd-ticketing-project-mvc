@@ -45,21 +45,21 @@ public class DataGenerator implements CommandLineRunner {
         roleService.save(employee);
 
         UserDTO user1 = new UserDTO("John", "Kesy",
-                "john@" + faker.internet().domainName(), "Abc1", true, "7459684532", manager, Gender.MALE);
+                "john@outlook.com", "Abc1", true, "7459684532", manager, Gender.MALE);
         UserDTO user5 = new UserDTO("Mike", "Smith",
-                "mike@" + faker.internet().domainName(), "Abc2", true, "7459684532", admin, Gender.MALE);
+                "mike@gmail.com", "Abc2", true, "7459684532", admin, Gender.MALE);
         UserDTO user2 = new UserDTO("Delisa",
-                "Norre", "delisa@" + faker.internet().domainName(), "123", true, "8567412358", manager, Gender.FEMALE);
+                "Norre", "delisa@hotmail.com", "123", true, "8567412358", manager, Gender.FEMALE);
         UserDTO user3 = new UserDTO("Craig", "Jark",
-                "craig@" + faker.internet().domainName(), "Abc3", true, "7777775566", employee, Gender.MALE);
+                "craig@yahoo.com", "Abc3", true, "7777775566", employee, Gender.MALE);
         UserDTO user4 = new UserDTO("Shaun",
-                "Hayns", "shaun@" + faker.internet().domainName(), "Abc4", true, "3256987412", manager, Gender.MALE);
+                "Hayns", "shaun@mail.com" , "Abc4", true, "3256987412", manager, Gender.MALE);
         UserDTO user6 = new UserDTO("Elizebeth",
-                "Loren", "elizebeth@" + faker.internet().domainName(), "Abc4", true, "5306987412", employee, Gender.FEMALE);
+                "Loren", "elizebeth@yandex.com", "Abc4", true, "5306987412", employee, Gender.FEMALE);
         UserDTO user7 = new UserDTO("Maria",
-                "Ada", "maria@" + faker.internet().domainName(), "Abc4", true, "9996987412", employee, Gender.FEMALE);
+                "Ada", "maria@gmail.com", "Abc4", true, "9996987412", employee, Gender.FEMALE);
         UserDTO user8 = new UserDTO("Bill",
-                "Matt", "maria@" + faker.internet().domainName(), "Abc4", true, "8881239846", employee, Gender.MALE);
+                "Matt", "matt@mail.com", "Abc4", true, "8881239846", employee, Gender.MALE);
         userService.save(user1);
         userService.save(user2);
         userService.save(user3);
@@ -83,10 +83,10 @@ public class DataGenerator implements CommandLineRunner {
         projectService.save(project3);
 
 
-        TaskDTO task1 = new TaskDTO(1L, project1, user8, "Controller", "Request Mapping", Status.IN_PROGRESS, LocalDate.now().minusDays(4));
-        TaskDTO task2 = new TaskDTO(2L, project3, user3, "Configuration", "Database Connnection", Status.COMPLETE, LocalDate.now().minusDays(12));
-        TaskDTO task3 = new TaskDTO(3L, project3, user6, "Mapping", "One-To-Many", Status.IN_PROGRESS, LocalDate.now().minusDays(8));
-        TaskDTO task4 = new TaskDTO(4L, project2, user7, "Dependency Injection", "Autowired", Status.UAT_TEST, LocalDate.now().minusDays(20));
+        TaskDTO task1 = new TaskDTO( project1, user8, "Controller", "Request Mapping", Status.IN_PROGRESS, LocalDate.now().minusDays(4));
+        TaskDTO task2 = new TaskDTO( project3, user3, "Configuration", "Database Connnection", Status.COMPLETE, LocalDate.now().minusDays(12));
+        TaskDTO task3 = new TaskDTO( project3, user6, "Mapping", "One-To-Many", Status.IN_PROGRESS, LocalDate.now().minusDays(8));
+        TaskDTO task4 = new TaskDTO( project2, user7, "Dependency Injection", "Autowired", Status.UAT_TEST, LocalDate.now().minusDays(20));
         taskService.save(task1);
         taskService.save(task2);
         taskService.save(task3);
