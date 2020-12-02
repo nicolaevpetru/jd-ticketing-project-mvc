@@ -19,7 +19,7 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate th:action="@{/task/create}" method="post"
+                                    <form class="needs-validation" novalidate th:action="@{/task/update/{id}(id=${task.id})}" method="post"
                                           th:object="${task}">
 
                                         <div class="row">
@@ -124,8 +124,7 @@
                                                 <td th:text="${#temporals.format(task.assignedDate,'MM/dd/yyyy')}"></td>
                                                 <td th:text="${task.taskStatus}"></td>
                                                 <td>
-                                                    <a th:href="@{/task/update/{id}(id=${task.getId()})}"
-                                                       class="btn btn-warning rounded-0">Update</a>
+                                                    <a th:href="@{/task/update/{id}(id=${task.getId()})}" class="btn btn-warning rounded-0">Update</a>
                                                     <a th:href="@{/task/delete/{id}(id=${task.getId()})}"
                                                        class="btn btn-danger rounded-0">Delete</a>
                                                 </td>
