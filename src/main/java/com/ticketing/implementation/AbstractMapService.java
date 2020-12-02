@@ -30,7 +30,7 @@ public abstract class AbstractMapService<T, ID> {
     }
 
     void update(ID id, T object) {
-        delete(object);
+//        delete(object);  ==> if you want to save an object then map will replace it for you
         save(id, object);
     }
 }
