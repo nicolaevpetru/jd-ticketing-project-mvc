@@ -1,8 +1,10 @@
 package com.ticketing.controller;
 
 import com.ticketing.dto.ProjectDTO;
+import com.ticketing.dto.TaskDTO;
 import com.ticketing.dto.UserDTO;
 import com.ticketing.service.ProjectService;
+import com.ticketing.service.TaskService;
 import com.ticketing.service.UserService;
 import com.ticketing.utils.Status;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class ProjectController {
     ProjectService projectService;
     @Autowired
     UserService userService;
+    @Autowired
+    TaskService taskService;
 
     @GetMapping("/create")
     public String createProject(Model model) {
@@ -77,10 +81,30 @@ public class ProjectController {
     @GetMapping("/manager/complete")
     public String getProjectsByManager(Model model) {
         UserDTO manager = userService.findById("john@outlook.com");
-        List<ProjectDTO> projects = projectService.findAll().stream().filter(project -> project.getAssignedManager()
-                .equals(manager)).collect(Collectors.toList());
+        List<ProjectDTO> projects = getCountedListOfProjectDTO(manager);
         model.addAttribute("projects", projects);
 
         return "/manager/project-status";
+    }
+
+    List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
+        List<ProjectDTO> projects = projectService
+                .findAll()
+                .stream()
+                .filter(x -> x.getAssignedManager()
+                        .equals(manager))
+                .map(x -> {
+                    List<TaskDTO> taskList = taskService.findTaskByManager(manager);
+                    int completeCount = (int) taskList.stream().filter(t -> t.getProject().equals(x) && t.getTaskStatus() == Status.COMPLETE).count();
+                    int incompleteCount = (int) taskList.stream().filter(t -> t.getProject().equals(x) && t.getTaskStatus() != Status.COMPLETE).count();
+
+                    x.setCompleteTaskCounts(completeCount);
+                    x.setUnfinishedTaskCounts(incompleteCount);
+//                    return new ProjectDTO(x.getProjectName(), x.getProjectCode(),
+//                            userService.findById(x.getAssignedManager().getUserName()),
+//                            x.getStartDate(), x.getEndDate(), x.getProjectDetail(), x.getProjectStatus(), completeCount, incompleteCount);
+                    return x;
+                }).collect(Collectors.toList());
+        return projects;
     }
 }
